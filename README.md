@@ -29,15 +29,16 @@ And, finally : Have fun !!
 
 
 
+
 ====== Still Untranslated ======
 
 Wrong password in Online lobby (server-wise > parse the text)
 Quickmatch room description (server-wise > parse the text)
 --- CG Artists (will stay as it is)
 --- Music Names (will stay as it is)
-	Training Mode (GFX and Scripts)
-	Spell Status Stickynotes (GFX)
-	--- Character Descriptions (English check in progress)
+Training Mode (GFX and Scripts)
+Spell Status Stickynotes (GFX)
+--- Character Descriptions (English check in progress)
 
 ====== Needs to be patched ======
 
