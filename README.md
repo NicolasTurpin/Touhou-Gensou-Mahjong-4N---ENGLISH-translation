@@ -23,36 +23,3 @@ Please note that, in any cases, I didn't modify anything that would break the ga
 So you'll still be able to play against Japanese players !
 
 And, finally : Have fun !!
-
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-
-====== Still Untranslated ======
-
-Wrong password in Online lobby (server-wise > parse the text)
-Quickmatch room description (server-wise > parse the text)
---- CG Artists (will stay as it is)
---- Music Names (will stay as it is)
-Training Mode (GFX and Scripts)
-Spell Status Stickynotes (GFX)
---- Character Descriptions (English check in progress)
-
-====== Needs to be patched ======
-
-Bilingual Yakus in the Info Screen
-Keyboards shortcuts for QWERTY
-In-game description text-wrapping
-
-====== May be added ======
-
-Replay Mode
-Story Mode from THMJ 1-3
-Legacy secret achievements
