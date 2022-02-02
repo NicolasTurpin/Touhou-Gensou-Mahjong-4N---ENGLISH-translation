@@ -17,4 +17,9 @@ That said, the "4N" version is an extension of the 4th version which brings EVER
 
 Feel free to provide any feedback on the github itself or any social media ! (COMING SOON)
 
+As a side note, the game had few bugs and un-completable achievements that I patched so it finally work.
+This is not only a translation patch but a bugfix as well.
+Please note that, in any cases, I didn't modify anything that would break the game when playing online against a player using an original, Japanese game.
+So you'll still be able to play against Japanese players !
+
 And, finally : Have fun !!
