@@ -24,11 +24,16 @@ So you'll still be able to play against Japanese players !
 
 And, finally : Have fun !!
 
-
-
-
-
-
+.
+.
+.
+.
+.
+.
+.
+.
+.
+.
 
 ====== Still Untranslated ======
 
