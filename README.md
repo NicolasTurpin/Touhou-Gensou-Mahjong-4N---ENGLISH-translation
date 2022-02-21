@@ -9,6 +9,8 @@ A repository to share the patched files and adress english typos (I assume a lot
 Touhou Gensou Mahjong is, as obvious as it souds, a Mahjong game. The "Real" Mahjong (not the pyramid find-the-pair one from Windows 95) using the Riichi rules. A very popular game in Japan, known for its dark past among yakuzas (as Poker was in Chicago) and nowadays played in a more relax way among friends and families. The original game has travelled worldwide, each country setting its own rules and pretty well known in the whole Asian continent and United States.
 However, as any Touhou fangame must be, there is a twist to it.... You see, when playing a game, you'll be required to chose a character and a place from the Touhou franchise which will provides you with Spells and special extreme rules.
 
+![MAGIC](https://user-images.githubusercontent.com/62624318/154934452-854fe946-63e6-4ec7-a1c6-e463871d1b05.PNG)
+
 Want to feel the Saki powers ? Want to experience the Akagi mindgame ? Want to cheat the board like Tetsuya did ?
 
 Here you go my friends !!
@@ -16,6 +18,9 @@ Here you go my friends !!
 Touhou Gensou Mahjong has been released in several opus. This is the 4th one in the serie, the most cleaned one and the last released on PC.
 That said, the "4N" version is an extension of the 4th version which brings EVERY characters and tables from the previous episodes. Rocketting its rooster to an amazing 108 unique characters !
 (I bet even hardcore Touhou fans will not find a missing character in here haha)
+
+![snap0004](https://user-images.githubusercontent.com/62624318 ![snap0009](https://user-images.githubusercontent.com/62624318/154935759-ac9d8431-0d76-456e-8a5a-02e9cf90c64a.png)
+/154935715-dd6876a1-57ff-4530-b34f-c4e80de4d557.png)
 
 Feel free to provide any feedback on the github itself or any social media ! (COMING SOON)
 
