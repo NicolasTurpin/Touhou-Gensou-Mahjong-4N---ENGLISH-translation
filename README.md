@@ -19,8 +19,7 @@ Touhou Gensou Mahjong has been released in several opus. This is the 4th one in 
 That said, the "4N" version is an extension of the 4th version which brings EVERY characters and tables from the previous episodes. Rocketting its rooster to an amazing 108 unique characters !
 (I bet even hardcore Touhou fans will not find a missing character in here haha)
 
-![snap0004](https://user-images.githubusercontent.com/62624318 ![snap0009](https://user-images.githubusercontent.com/62624318/154935759-ac9d8431-0d76-456e-8a5a-02e9cf90c64a.png)
-/154935715-dd6876a1-57ff-4530-b34f-c4e80de4d557.png)
+![image](https://user-images.githubusercontent.com/62624318/154936428-4e562901-928a-4c94-b624-1b3ea5fe9d85.png)
 
 Feel free to provide any feedback on the github itself or any social media ! (COMING SOON)
 
