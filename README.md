@@ -4,6 +4,8 @@ A repository to share the patched files and adress english typos (I assume a lot
 
 東方幻想麻雀 / Touhou Gensou Mahjong is a property of D.N.A. Softwares and I'm translating and distributing my patch this for free with help from various peoples.
 
+![LOGO](https://user-images.githubusercontent.com/62624318/154934177-b5894b04-b2aa-42ec-a8a5-18c416e652fe.PNG)
+
 Touhou Gensou Mahjong is, as obvious as it souds, a Mahjong game. The "Real" Mahjong (not the pyramid find-the-pair one from Windows 95) using the Riichi rules. A very popular game in Japan, known for its dark past among yakuzas (as Poker was in Chicago) and nowadays played in a more relax way among friends and families. The original game has travelled worldwide, each country setting its own rules and pretty well known in the whole Asian continent and United States.
 However, as any Touhou fangame must be, there is a twist to it.... You see, when playing a game, you'll be required to chose a character and a place from the Touhou franchise which will provides you with Spells and special extreme rules.
 
