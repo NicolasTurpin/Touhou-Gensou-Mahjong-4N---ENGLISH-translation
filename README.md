@@ -35,4 +35,7 @@ This is not only a translation patch but a bugfix as well.
 Please note that, in any cases, I didn't modify anything that would break the game when playing online against a player using an original, Japanese game.
 So you'll still be able to play against Japanese players !
 
+And big news for players already familiar with the game : I also implemented a Story Mode (from THMJ 1) with few special missions (I let you discover them) and a Replay Mode !
+You'll never miss the nice Yakuman screenshot again ;)
+
 And, finally : Have fun !!
