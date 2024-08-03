@@ -20,6 +20,27 @@ jobs:
           echo "Highest version found: $highest_version"
           echo "::set-output name=highest_version::$highest_version"
 
+      - name: Find the actual directory name
+        id: find_directory
+        run: |
+          # Find the actual directory name that matches the highest version
+          dir_name=$(ls -d "${{ steps.find_version.outputs.highest_version }} "* | head -n 1)
+          echo "Directory name found: $dir_name"
+          echo "::set-output name=dir_name::$dir_name"
+
+      - name: Navigate to the directory and combine zip files
+        run: |
+          cd "${{ steps.find_directory.outputs.dir_name }}" || exit 1
+          # Combine split zip files
+          combined_zip_name="thmj4n ${{ steps.find_version.outputs.highest_version }}.zip"
+          cat thmj4n.zip.* > "$combined_zip_name"
+
+      - name: Upload Combined Zip as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: combined-zip
+          path: "${{ steps.find_directory.outputs.dir_name }}/$combined_zip_name"  # Path to the combined zip file
+
       - name: Delete old artifacts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,16 +55,3 @@ jobs:
             curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
               "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$artifact_id"
           done
-
-      - name: Navigate to the directory and combine zip files
-        run: |
-          cd "${{ steps.find_version.outputs.highest_version }} - BETA - very minor patch" || exit 1
-          # Combine split zip files
-          combined_zip_name="thmj4n ${steps.find_version.outputs.highest_version}.zip"
-          cat thmj4n.zip.* > "$combined_zip_name"
-
-      - name: Upload Combined Zip as Artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: combined-zip
-          path: "${{ steps.find_version.outputs.highest_version }} - BETA - very minor patch/thmj4n ${steps.find_version.outputs.highest_version}.zip"  # Path to the combined zip file
