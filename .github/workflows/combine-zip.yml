@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v4  
 
       - name: Find highest version number
         id: find_version
@@ -40,8 +40,8 @@ jobs:
 
       - name: Upload Combined Zip as Artifact
         id: upload_artifact
-        uses: actions/upload-artifact@v4  # Updated to v4
+        uses: actions/upload-artifact@v4  
         with:
-          name: combined-zip
+          name: "combined-zip-${{ env.highest_version }}" 
           path: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
           retention-days: 1  # Set the artifact to expire in 1 day (24 hours)
