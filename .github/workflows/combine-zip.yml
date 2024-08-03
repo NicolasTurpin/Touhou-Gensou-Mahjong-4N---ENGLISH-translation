@@ -20,11 +20,26 @@ jobs:
           echo "Highest version found: $highest_version"
           echo "::set-output name=highest_version::$highest_version"
 
+      - name: Delete old artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Get the list of artifacts
+          artifacts=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/artifacts")
+          
+          # Parse the artifact names and delete them
+          echo "$artifacts" | jq -r '.artifacts[] | .id' | while read -r artifact_id; do
+            echo "Deleting artifact with ID: $artifact_id"
+            curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
+              "https://api.github.com/repos/${{ github.repository }}/actions/artifacts/$artifact_id"
+          done
+
       - name: Navigate to the directory and combine zip files
         run: |
           cd "${{ steps.find_version.outputs.highest_version }}" || exit 1
           # Combine split zip files
-          combined_zip_name="thmj4n ${highest_version}.zip"
+          combined_zip_name="thmj4n ${steps.find_version.outputs.highest_version}.zip"
           cat thmj4n.zip.* > "$combined_zip_name"
 
       - name: Upload Combined Zip as Artifact
