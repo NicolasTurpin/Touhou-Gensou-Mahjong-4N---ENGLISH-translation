@@ -44,4 +44,4 @@ jobs:
         with:
           name: "combined-zip-${{ env.highest_version }}" 
           path: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
-          retention-days: 1  # Set the artifact to expire in 1 day (24 hours)
+          retention-days: 90  # Set the artifact to expire in 90 days (default - max free limit)
