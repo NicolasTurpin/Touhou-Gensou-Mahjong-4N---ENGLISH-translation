@@ -11,14 +11,24 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Find highest version number
+        id: find_version
+        run: |
+          # Extract version numbers from directory names
+          version_dirs=$(ls -d */ | grep -oP '\d+\.\d+\.\d+')
+          highest_version=$(echo "$version_dirs" | sort -V | tail -n 1)
+          echo "Highest version found: $highest_version"
+          echo "::set-output name=highest_version::$highest_version"
+
       - name: Navigate to the directory and combine zip files
         run: |
-          cd "01.525 - BETA - very minor patch" || exit 1
+          cd "${{ steps.find_version.outputs.highest_version }}" || exit 1
           # Combine split zip files
-          cat thmj4n.zip.* > thmj4n.zip
+          combined_zip_name="thmj4n ${highest_version}.zip"
+          cat thmj4n.zip.* > "$combined_zip_name"
 
       - name: Upload Combined Zip as Artifact
         uses: actions/upload-artifact@v2
         with:
           name: combined-zip
-          path: "01.525 - BETA - very minor patch/thmj4n.zip"  # Path to the combined zip file
+          path: "${{ steps.find_version.outputs.highest_version }}/thmj4n ${steps.find_version.outputs.highest_version}.zip"  # Path to the combined zip file
