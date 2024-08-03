@@ -1,0 +1,40 @@
+name: Combine Zip Files
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  combine:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: 'main/01.525 - BETA - very minor patch'
+
+      - name: Combine split zip files
+        run: |
+          cat thmj4n.zip.* > thmj4n.zip
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}  # Use the branch name as the tag
+          release_name: Release ${{ github.ref_name }}  # Use the branch name as the release name
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: thmj4n.zip
+          asset_name: thmj4n.zip
+          asset_content_type: application/zip
