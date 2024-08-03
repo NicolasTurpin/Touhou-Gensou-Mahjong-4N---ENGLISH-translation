@@ -11,27 +11,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Navigate to the directory
+      - name: Navigate to the directory and combine zip files
         run: |
           cd "01.525 - BETA - very minor patch" || exit 1
           # Combine split zip files
           cat thmj4n.zip.* > thmj4n.zip
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Upload Combined Zip as Artifact
+        uses: actions/upload-artifact@v2
         with:
-          tag_name: ${{ github.ref_name }}  # Use the branch name as the tag
-          release_name: Release ${{ github.ref_name }}  # Use the branch name as the release name
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: "01.525 - BETA - very minor patch/thmj4n.zip"  # Path to the combined zip file
-          asset_name: thmj4n.zip
-          asset_content_type: application/zip
+          name: combined-zip
+          path: "01.525 - BETA - very minor patch/thmj4n.zip"  # Path to the combined zip file
