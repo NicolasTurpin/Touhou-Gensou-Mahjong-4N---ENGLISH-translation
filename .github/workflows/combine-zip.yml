@@ -44,4 +44,22 @@ jobs:
         with:
           name: "combined-zip-${{ env.highest_version }}" 
           path: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
-          retention-days: 90  # Set the artifact to expire in 90 days (default - max free limit)
+          retention-days: 3  # Set the artifact to expire in 3 days (max 90 days)
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag: ${{ env.highest_version }}  # Use the highest version as the tag
+          release_name: "Release ${{ env.highest_version }}"  # Set the release name
+          body: "This release includes the combined zip file for version ${{ env.highest_version }}."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Combined Zip as Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          tag: ${{ env.highest_version }}  # Ensure this matches the tag used in the previous step
+          files: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
