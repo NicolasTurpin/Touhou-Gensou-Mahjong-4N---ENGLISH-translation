@@ -1,0 +1,57 @@
+name: Combine Zip Files
+
+on:
+  workflow_dispatch:  # Allows manual triggering of the workflow
+
+jobs:
+  combine:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4  
+
+      - name: Find highest version number
+        id: find_version
+        run: |
+          # Extract version numbers from directory names and find the highest
+          highest_version=$(ls -d */ | grep -oP '^\d+\.\d+' | sort -V | tail -n 1)
+          echo "Highest version found: $highest_version"
+          echo "highest_version=$highest_version" >> $GITHUB_ENV  # Set output using environment file
+
+      - name: Find the actual directory name
+        id: find_directory
+        run: |
+          # Find the actual directory name that matches the highest version
+          dir_name=$(ls -d "${{ env.highest_version }} "* | head -n 1)
+          echo "Directory name found: $dir_name"
+          echo "dir_name=$dir_name" >> $GITHUB_ENV  # Set output using environment file
+
+      - name: Combine Zip Files
+        id: combine_zip
+        run: |
+          cd "${{ env.dir_name }}" || exit 1
+          # Combine split zip files
+          combined_zip_name="thmj4n ${{ env.highest_version }}.zip"
+          cat thmj4n.zip.* > "$combined_zip_name"
+          echo "Combined zip file created: $combined_zip_name"
+          echo "combined_zip_name=$combined_zip_name" >> $GITHUB_ENV  # Set output using environment file
+
+      - name: Upload Combined Zip as Artifact
+        id: upload_artifact
+        uses: actions/upload-artifact@v4  
+        with:
+          name: "combined-zip-${{ env.highest_version }}" 
+          path: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
+          retention-days: 3  # Set the artifact to expire in 3 days (max 90 days)
+
+      - name: Create Release and Upload Asset
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.highest_version }}  # Use the highest version as the tag
+          name: "Release ${{ env.highest_version }}"  # Set the release name
+          body: "This release includes the combined zip file for version ${{ env.highest_version }}."
+          files: "${{ env.dir_name }}/${{ env.combined_zip_name }}"  # Path to the combined zip file
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
