@@ -42,9 +42,7 @@ You'll never miss the nice Yakuman screenshot again ;)
 
 And, finally : Have fun !!
 
-============================
 === INSTALLATION PROCESS ===
-============================
 
 1) You need, first of all, an installation of Touhou Gensou Mahjong 4N (install 4 then 4N)
 2) Launch the game once to let the game auto-update then exit.
