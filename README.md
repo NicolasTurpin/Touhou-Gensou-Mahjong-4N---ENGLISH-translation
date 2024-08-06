@@ -1,5 +1,7 @@
 # Touhou-Gensou-Mahjong-4N---ENGLISH-translation
 
+***for Installation process, see the last section***
+
 A repository to share the patched files and adress english typos (I assume a lot !) and translation mistakes (I assume none but I'm always open to improvement !)
 
 東方幻想麻雀 / Touhou Gensou Mahjong is a property of D.N.A. Softwares and I'm translating and distributing my patch this for free with help from various peoples.
@@ -39,3 +41,19 @@ And big news for players already familiar with the game : I also implemented a S
 You'll never miss the nice Yakuman screenshot again ;)
 
 And, finally : Have fun !!
+
+======================================================
+================ INSTALLATION PROCESS ================
+======================================================
+
+1) You need, first of all, an installation of Touhou Gensou Mahjong 4N (install 4 then 4N)
+2) Launch the game once to let the game auto-update then exit.
+3) The auto-update will not update to the very last version due to a bug in the original game. You'll need to install the manual-update to get everything right.
+4) DO NOT ATTEMPT TO INSTALL THE ENGLISH PATCH BEFORE THE MANUAL-UPDATE !
+5) Download the manual-update on the offical DNA Softwares website here : https://www.dna-softwares.com/article/2128
+6) Copy the file named "thmj4n.ManualUpdate.exe" inside your game and launch it (the webpage have a little tutorial but it's quite straightforward, just press OK until the end)
+7) Launch the game. In the main menu, on the bottom left you should see this exact number :
+   ![image](https://github.com/user-attachments/assets/56339ca5-074d-4eda-9bf6-3ff9999978fa)
+   If that's not the case, the manual update may have gone wrong. try to relaunch it (or call for help in the "Issue" section)
+8) Copy and replace the "thmj4n.p" file by the one provided on the last release of the english patch.
+9) Your game is ready to go ^^
